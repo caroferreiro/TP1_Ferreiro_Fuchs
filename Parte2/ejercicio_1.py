@@ -1,4 +1,4 @@
-import pandas as pd
+#import pandas as pd
 import matplotlib.pyplot as plt
 #import csv
 
@@ -15,12 +15,12 @@ import matplotlib.pyplot as plt
 # plt.scatter(x, y)
 # plt.show()
 
-datos = pd.read_csv('archivo.csv', header=None)
+#datos = pd.read_csv('archivo.csv', header=None)
 
-x = datos.iloc[:, 0].tolist()
-y = datos.iloc[:, 1].tolist()
+# x = datos.iloc[:, 0].tolist()
+# y = datos.iloc[:, 1].tolist()
 
-# Graficar puntos en el plano xy
-plt.scatter(x, y)
-plt.show()
+# # Graficar puntos en el plano xy
+# plt.scatter(x, y)
+# plt.show()
 
