@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 # plt.scatter(x, y)
 # plt.show()
 
-datos = pd.read_csv('Parte2/ejercicio_1.csv')
+datos = pd.read_csv('Parte2/Ejercicio_1/ejercicio_1.csv')
 
 x = datos.iloc[:, 0].tolist()
 y = datos.iloc[:, 1].tolist()
