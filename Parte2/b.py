@@ -22,6 +22,7 @@ a = y_mean - b * x_mean
 
 print(f"La ecuación de la recta es: y = {a:.4f} + {b:.4f}x")
 
+beta = x
 # Gráficamente:
 plt.plot(x, y, 'o', color= '#000080')
 
