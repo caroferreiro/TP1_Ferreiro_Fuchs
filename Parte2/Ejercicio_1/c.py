@@ -12,11 +12,9 @@ y = list(datos['Y'].values)
 # Agrego 12 a cada valor de y:
 y = [valor + 12 for valor in y]
 
-
 # b)
 X = np.array([[x[i]] for i in range(0,len(x))])
 Y = np.array([[y[i]] for i in range(0,len(y))])
-
 
 beta = ((np.linalg.inv(np.transpose(X).dot(X))).dot(np.transpose(X))).dot(Y)
 print(beta)
