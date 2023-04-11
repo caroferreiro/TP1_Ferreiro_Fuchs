@@ -18,6 +18,8 @@ print("Pendiente:", pendiente)
 print("Intercepto:", intercepto)
 
 # Gráficamente:
-plt.plot(x, y, 'o', color= '#000080')
-plt.plot(x, X.dot(beta), color='OrangeRed')
+plt.plot(x, y, 'o', color= '#d66eff')
+plt.plot(x, X.dot(beta), color='#7902a8', linewidth = 3)
+plt.xlabel('X')
+plt.ylabel('Y')
 plt.show()
