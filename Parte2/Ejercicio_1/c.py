@@ -23,7 +23,7 @@ print(beta)
 
 # Gráficamente:
 plt.plot(x, y, 'o', color= '#0aa14b')
-plt.plot(x, X.dot(beta), color='#ff57ca', linewidth = 3)
+plt.plot(x, X.dot(beta), color='#c210aa', linewidth = 3)
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.show()
