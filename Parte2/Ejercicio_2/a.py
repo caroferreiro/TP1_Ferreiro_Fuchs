@@ -14,7 +14,7 @@ beta = ((np.linalg.inv(np.transpose(X).dot(X))).dot(np.transpose(X))).dot(Y)
 print(beta)
 
 plt.plot(x, y, 'o', color='#000080')
-plt.plot(x, X.dot(beta), color='OrangeRed')
+plt.plot(x, X.dot(beta), color='OrangeRed', linewidth = 3)
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.show()
