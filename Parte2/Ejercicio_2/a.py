@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 datos = pd.read_csv('Parte2/Ejercicio_2/ejercicio_2.csv')
 
-x = datos.iloc[:, 0].tolist()
-y = datos.iloc[:, 1].tolist()
+x = list(datos['X'].values)
+y = list(datos['Y'].values) 
 
 x_mean = sum(x) / len(x)
 y_mean = sum(y) / len(y)
@@ -16,4 +16,6 @@ b = y_mean - a*x_mean
 
 plt.plot(x, y, 'o', color='#000080')
 plt.plot(x, [a*xi+b for xi in x], color='OrangeRed')
+plt.xlabel('X')
+plt.ylabel('Y')
 plt.show()

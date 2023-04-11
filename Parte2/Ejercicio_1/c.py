@@ -5,8 +5,8 @@ import numpy as np
 datos = pd.read_csv('Parte2/Ejercicio_1/ejercicio_1.csv')
 
 # a) 
-x = datos.iloc[:, 0].tolist()
-y = datos.iloc[:, 1].tolist()
+x = list(datos['X'].values)
+y = list(datos['Y'].values) 
 
 # Agrego 12 a cada valor de y:
 y = [valor + 12 for valor in y]
@@ -24,4 +24,6 @@ print(f"La ecuación de la recta es: y = {a:.4f} + {b:.4f}x")
 # Gráficamente:
 plt.plot(x, y, 'o', color= '#000080')
 plt.plot(x, [a*xi+b for xi in x], color='OrangeRed', label='Recta de mejor ajuste')
+plt.xlabel('X')
+plt.ylabel('Y')
 plt.show()
