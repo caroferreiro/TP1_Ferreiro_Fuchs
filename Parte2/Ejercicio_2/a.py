@@ -7,15 +7,14 @@ datos = pd.read_csv('Parte2/Ejercicio_2/ejercicio_2.csv')
 x = list(datos['X'].values)
 y = list(datos['Y'].values) 
 
-x_mean = sum(x) / len(x)
-y_mean = sum(y) / len(y)
+X = np.array([[x[i]] for i in range(0,len(x))])
+Y = np.array([[y[i]] for i in range(0,len(y))])
 
-# Calculo los coeficientes de la recta y = ax + b
-a = sum((xi - x_mean) * (yi - y_mean) for xi, yi in zip(x, y)) / sum((xi - x_mean)**2  for xi in x)
-b = y_mean - a*x_mean
+beta = ((np.linalg.inv(np.transpose(X).dot(X))).dot(np.transpose(X))).dot(Y)
+print(beta)
 
 plt.plot(x, y, 'o', color='#000080')
-plt.plot(x, [a*xi+b for xi in x], color='OrangeRed')
+plt.plot(x, X.dot(beta), color='OrangeRed')
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.show()

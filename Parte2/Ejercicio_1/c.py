@@ -12,18 +12,15 @@ y = list(datos['Y'].values)
 y = [valor + 12 for valor in y]
 
 # b)
+X = np.array([[x[i]] for i in range(0,len(x))])
+Y = np.array([[y[i]] for i in range(0,len(y))])
 
-x_mean = sum(x) / len(x)
-y_mean = sum(y) / len(y)
-
-a = sum((xi - x_mean) * (yi - y_mean) for xi, yi in zip(x, y)) / sum((xi - x_mean)**2 for xi in x)
-b = y_mean - a * x_mean
-
-print(f"La ecuación de la recta es: y = {a:.4f} + {b:.4f}x")
+beta = ((np.linalg.inv(np.transpose(X).dot(X))).dot(np.transpose(X))).dot(Y)
+print(beta)
 
 # Gráficamente:
 plt.plot(x, y, 'o', color= '#000080')
-plt.plot(x, [a*xi+b for xi in x], color='OrangeRed', label='Recta de mejor ajuste')
+plt.plot(x, X.dot(beta), color='OrangeRed')
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.show()
