@@ -27,10 +27,7 @@ Y = np.array([[y[i]] for i in range(0,len(y))])
 
 
 
-beta1 = 0
-beta2 = 0
-beta3 = 0
-beta4 = 0
-beta5 = 0
-beta6 = 0
-
+beta1 = ((np.linalg.inv(np.transpose(X1).dot(X1))).dot(np.transpose(X1))).dot(Y)
+beta2 = ((np.linalg.inv(np.transpose(X2).dot(X2))).dot(np.transpose(X2))).dot(Y)
+beta3 = ((np.linalg.inv(np.transpose(X3).dot(X3))).dot(np.transpose(X3))).dot(Y)
+#etc etc etc
