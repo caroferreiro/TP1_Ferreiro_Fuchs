@@ -4,13 +4,13 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('Parte3/Ejercicio_1/real-estate-valuation-data-set.csv')
 
-datos_entrenamiento = df.iloc[0:315]
-datos_test = df.iloc[315:]
+datos_entrenamiento = df.iloc[0:317]
+datos_test = df.iloc[317:]
 
 #queremos estimar el precio por ping
 
 x1 = list(datos_entrenamiento["X1 transaction date"].values)
-X1 = np.array([[x1[i]] for i in range(0,len(x1))])
+X1 = np.array([[x1[i]] for i in range(0, len(x1))])
 x2 = list(datos_entrenamiento["X2 house age"].values)
 X2 = np.array([[x2[i]] for i in range(0,len(x2))])
 x3 = list(datos_entrenamiento["X3 distance to the nearest MRT station"].values)
