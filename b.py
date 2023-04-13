@@ -4,13 +4,12 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('Parte3/Ejercicio_1/real-estate-valuation-data-set.csv')
 
-datos_entrenamiento = df.iloc[0:317]
-datos_test = df.iloc[317:]
+datos_entrenamiento = df.iloc[0:315]
+datos_test = df.iloc[315:]
 
-#queremos estimar el precio por ping
 
 x1 = list(datos_entrenamiento["X1 transaction date"].values)
-X1 = np.array([[x1[i]] for i in range(0, len(x1))])
+X1 = np.array([[x1[i]] for i in range(0,len(x1))])
 x2 = list(datos_entrenamiento["X2 house age"].values)
 X2 = np.array([[x2[i]] for i in range(0,len(x2))])
 x3 = list(datos_entrenamiento["X3 distance to the nearest MRT station"].values)
@@ -25,9 +24,9 @@ y = list(datos_entrenamiento["Y house price of unit area"].values)
 Y = np.array([[y[i]] for i in range(0,len(y))])
 
 
-
-
 beta1 = ((np.linalg.inv(np.transpose(X1).dot(X1))).dot(np.transpose(X1))).dot(Y)
 beta2 = ((np.linalg.inv(np.transpose(X2).dot(X2))).dot(np.transpose(X2))).dot(Y)
 beta3 = ((np.linalg.inv(np.transpose(X3).dot(X3))).dot(np.transpose(X3))).dot(Y)
 #etc etc etc
+
+y_estimado = [[x1[i]*beta1 + x2[i]*beta2 + x3[i]*beta3 + x4[i]*beta4 + x5[i]*beta5 + x6[i]*beta6]  for i in range(0,len(x1))]
