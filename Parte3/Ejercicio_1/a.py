@@ -33,3 +33,9 @@ beta5 = ((np.linalg.inv(np.transpose(X5).dot(X5))).dot(np.transpose(X5))).dot(Y)
 beta6 = ((np.linalg.inv(np.transpose(X6).dot(X6))).dot(np.transpose(X6))).dot(Y)
 
 
+print(beta1)
+print(beta2)
+print(beta3)
+print(beta4)
+print(beta5)
+print(beta6)
