@@ -24,11 +24,22 @@ y = list(datos_entrenamiento["Y house price of unit area"].values)
 Y = np.array([[y[i]] for i in range(0,len(y))])
 
 
+#beta0 = ((np.linalg.inv(np.transpose(X0).dot(X0))).dot(np.transpose(X0))).dot(Y)
 beta1 = ((np.linalg.inv(np.transpose(X1).dot(X1))).dot(np.transpose(X1))).dot(Y)
 beta2 = ((np.linalg.inv(np.transpose(X2).dot(X2))).dot(np.transpose(X2))).dot(Y)
 beta3 = ((np.linalg.inv(np.transpose(X3).dot(X3))).dot(np.transpose(X3))).dot(Y)
-#etc etc etc
+beta4 = ((np.linalg.inv(np.transpose(X4).dot(X4))).dot(np.transpose(X4))).dot(Y)
+beta5 = ((np.linalg.inv(np.transpose(X5).dot(X5))).dot(np.transpose(X5))).dot(Y)
+beta6 = ((np.linalg.inv(np.transpose(X6).dot(X6))).dot(np.transpose(X6))).dot(Y)
+
 
 y_estimado = [[x1[i]*beta1 + x2[i]*beta2 + x3[i]*beta3 + x4[i]*beta4 + x5[i]*beta5 + x6[i]*beta6]  for i in range(0,len(x1))]
 
-ECM = sum([(y[i]-y_estimado(i))**2 for i in range(0,len(y))]) / len(y)
+sum=0
+for i in range(0,len(y)):
+    sum = sum +  (y[i]-y_estimado[i])**2 
+
+ECM = sum / len(y)
+
+
+print(ECM)
