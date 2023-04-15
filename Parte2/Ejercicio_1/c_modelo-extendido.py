@@ -18,7 +18,7 @@ X = np.array([[1, x[i]] for i in range(0,len(x))])
 Y = np.array([[y[i]] for i in range(0,len(y))])
 
 beta = ((np.linalg.inv(np.transpose(X).dot(X))).dot(np.transpose(X))).dot(Y)
-print(beta)
+print(beta[0], beta[1])
 
 # Gráficamente:
 plt.plot(x, y, 'o', color= '#0aa14b')
