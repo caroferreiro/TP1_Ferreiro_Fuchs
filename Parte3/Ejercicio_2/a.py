@@ -7,6 +7,7 @@ df = pd.read_csv('Parte3/real-estate-valuation-data-set.csv')
 datos_entrenamiento = df.iloc[0:315]
 datos_test = df.iloc[315:]
 
+y_test = list(datos_test["Y house price of unit area"].values)
 
 x1 = list(datos_entrenamiento["X1 transaction date"].values)
 X1 = np.array([[x1[i]] for i in range(0,len(x1))])
@@ -37,8 +38,9 @@ beta6 = ((np.linalg.inv(np.transpose(X6).dot(X6))).dot(np.transpose(X6))).dot(Y)
 y_estimado = X1*beta1 + X2*beta2 + X3*beta3 + X4*beta4 + X5*beta5 + X6*beta6
 
 sum = 0
-for i in range(0,len(y)):
-    sum = sum + (y[i]-y_estimado[i])**2 
+for i in range(0,len(y_test)):
+    sum = sum + (y_test[i]-y_estimado[i])**2 
 
-ECM = sum / len(y)
+ECM = sum / len(y_test)
 print(ECM)
+

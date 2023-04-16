@@ -7,7 +7,7 @@ datos = pd.read_csv('Parte2/Ejercicio_2/ejercicio_2.csv')
 x = list(datos['X'].values)
 y = list(datos['Y'].values) 
 
-X = np.array([[x[i]] for i in range(0,len(x))])
+X = np.array([[1, x[i]] for i in range(0,len(x))])
 Y = np.array([[y[i]] for i in range(0,len(y))])
 
 beta = ((np.linalg.inv(np.transpose(X).dot(X))).dot(np.transpose(X))).dot(Y)
