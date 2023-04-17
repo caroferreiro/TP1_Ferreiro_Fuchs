@@ -7,30 +7,30 @@ df = pd.read_csv('Parte3/real-estate-valuation-data-set.csv')
 datos_entrenamiento = df.iloc[0:315]
 datos_test = df.iloc[315:]
 
-X_entrenamiento = datos_entrenamiento[["X1 transaction date","X2 house age","X3 distance to the nearest MRT station","X4 number of convenience stores","X5 latitude","X6 longitude"]]
-Y_entrenamiento = datos_entrenamiento[["Y house price of unit area"]]
+x_entrenamiento = datos_entrenamiento[["X1 transaction date","X2 house age","X3 distance to the nearest MRT station","X4 number of convenience stores","X5 latitude","X6 longitude"]]
+Y_entrenamiento = datos_entrenamiento["Y house price of unit area"].astype(float)
+X_entrenamiento = np.array(x_entrenamiento)
 
 X_test = datos_test[["X1 transaction date","X2 house age","X3 distance to the nearest MRT station","X4 number of convenience stores","X5 latitude","X6 longitude"]]
-Y_test = datos_test[["Y house price of unit area"]]
+Y_test = datos_test["Y house price of unit area"].astype(float)
 
-beta_entrenamiento = ((np.linalg.inv(np.transpose(X_entrenamiento).dot(X_entrenamiento))).dot(np.transpose(X_entrenamiento))).dot(Y_entrenamiento)
+# Trasponemos X:
+Xe_t = np.transpose(X_entrenamiento)
+
+# Multiplicamos Xt por X:
+Xe_t_X = np.dot(Xe_t, X_entrenamiento)
+
+# Invertimos la multiplicación anterior:
+inv_Xe_t_X = np.linalg.inv(Xe_t_X)
+
+# Calculamos el beta óptimo:
+beta_optimo = np.dot((np.dot(inv_Xe_t_X, Xe_t)), Y_entrenamiento)
+
+y_estimado = X_test.dot(beta_optimo.T)
+Y_estimado = np.array(y_estimado)
 
 
-# y_estimado = X1.dot(beta1) + X2.dot(beta2) + X3.dot(beta3) + X4.dot(beta4) + X5.dot(beta5) + X6.dot(beta6)
-y_estimado = X1_t.dot(beta1) + X2_t.dot(beta2) + X3_t.dot(beta3) + X4_t.dot(beta4) + X5_t.dot(beta5) + X6_t.dot(beta6)
-print(y_test, y_estimado)
-sum = 0
-for i in range(0,len(y_test)):
-    
-    sum = sum + (y_test[i]-y_estimado[i])**2 
-
-ECM = sum / len(y_test)
-
-# sum1=0
-# for i in range(0,len(y_test)):
-#     sum1 = sum1 + (y_test[i]-y_estimado_v2[i])**2 
-
-# ECM2 = sum1 / len(y_test)
+ECM = sum((Y_test-y_estimado)**2)/len(X_test)
 print(ECM)
 
 
