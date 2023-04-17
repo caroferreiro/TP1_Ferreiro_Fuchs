@@ -26,6 +26,5 @@ beta_optimo = np.dot((np.dot(inv_Xe_t_X, Xe_t)), Y)
 y_estimado = X_entrenamiento.dot(beta_optimo.T)
 Y_estimado = np.array(y_estimado)
 
-
 ECM = sum((Y-y_estimado)**2)/len(X_entrenamiento)
-# print(ECM)
+print(ECM)
