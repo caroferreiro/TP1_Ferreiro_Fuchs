@@ -26,7 +26,7 @@ print(list(diferencia))
  
 x = list(range(0,315))
 
-plt.plot(x, diferencia, 'o', color='#e6198a')
+plt.plot(x, diferencia, color='#e6198a')
 plt.xlabel('N° de Casa')
 plt.ylabel('Error cometido')
 plt.show()
